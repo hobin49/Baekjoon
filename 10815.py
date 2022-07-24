@@ -23,10 +23,6 @@ for key,value in dictionary.items():
     else:
         print(0, end = " ")
 
-#         print(1, end = "")
-#     else:
-#         print(0, end = "")
-
 # 다른분 풀이 (best)
 import sys
 
