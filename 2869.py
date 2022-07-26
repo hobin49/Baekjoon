@@ -1,11 +1,4 @@
 A, B, C = map(int, input().split())
 
-count = 0
-result = 0
-while result <= C:
-    result += A
-    count +=1
-    if result >= C:
-        break
-    result -= B
-print(count)
+height = (C - B -1) // (A - B) + 1
+print(height)
