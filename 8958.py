@@ -12,5 +12,5 @@ for test_case in range(1, T +1):
             result += answer # 그 값을 result에 더해주면 누적이 된다.
         else:
             answer = 0
-
+    
     print(result)
