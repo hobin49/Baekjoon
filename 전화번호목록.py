@@ -1,7 +1,7 @@
 def solution(phone_book):
     #빈 딕셔너리를 만들고
     dictionary  = {}
-    flag = True
+    answer = True
     #딕셔너리로 만들어준다.
     for number in phone_book:
         dictionary[number] = dictionary.get(number, 0) + 1
@@ -17,6 +17,6 @@ def solution(phone_book):
             #숫자가 dict의 key에 값에 있고 전체 숫자랑은 달라야해 알았징?
             if search in dictionary.keys() and search != num:
                 # 그래야 False니까!!!
-                flag = False
+                answer = False
     #그게 아니면 True            
-    return flag
+    return answer
