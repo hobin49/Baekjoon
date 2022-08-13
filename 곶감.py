@@ -30,7 +30,6 @@ end = n
 # i는 행번호 입니다. 
 for i in range(n):
     # j는 열번호 입니다.
-    answer = 0
     for j in range(start, end):
         res += a[i][j]
     # 모래시계 모양이 좁혀 들어가는 부분    
