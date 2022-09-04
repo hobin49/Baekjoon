@@ -4,7 +4,7 @@ sys.setrecursionlimit(10000)
 
 #dfs 만들기
 def dfs(x, y):
-    #팔방탐색 시작
+    #델타탐색 시작
     dx = [0, 0, -1, 1]
     dy = [1, -1, 0, 0]
 
