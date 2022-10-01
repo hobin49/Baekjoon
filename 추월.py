@@ -1,42 +1,37 @@
 # 입력값 받고
 n = int(input())
-dict1 = {}
-lst1 = []
+# 입력한 차를 담을 딕셔너리
+entrance = {}
 # 테스만큼 돌면서
 for i in range(n):
     # 입력값을 받고
     car_number = input()
-    # 입력값을 리스트에 더하고
-    lst1.append(car_number)
-    # 딕셔너리에 value를 넣어주고
-    dict1[lst1[i]] = i + 1
+    # {0: 'ZG431SN', 1: 'ZG5080K', 2: 'ST123D', 3: 'ZG206A'}
+    entrance[i] = car_number
 
-dict2 = {}
-lst2 = []
+# 나온 차량을 담을 딕셔너리
+exit_ = {}
 for j in range(n):
     # 나머지 입력값을 또 받아주고
     car_number1 = input()
-    # 리스트에 값을 더하고
-    lst2.append(car_number1)
-    # 딕셔너리에 value를 넣어주고
-    dict2[lst2[j]] = j + 1
+    # 딕셔너리에 담아준다.
+    # {'ZG206A': 0, 'ZG431SN': 1, 'ZG5080K': 2, 'ST123D': 3}
+    exit_[car_number1] = j
 
-# 만약에 딕셔너리2 아이템들 중에
-for key, value in dict2.items():
-    # 같은 key가 dict1에 있으면
-    if key in dict1.keys():
-        # dict2의 value를 dict1의 value에 맞게 바꿔준다.
-        dict2[key] = dict1[key]
 
-# 여기서 생각한 부분 두 딕셔너리의 값들을 빼주고
-result = [a - b for a, b in zip(dict1.values(), dict2.values())]
+# 1 2 3 4
+# 4 1 2 3 -> 4번차량은 + 1 (3개의 차를 추월), 2번 차량은 (count 0 ) 3번차량(0)
 
-# 몇 대인지 세어줄 변수
+# 1 2 3 4
+# 3 4 1 2 -> 4번 차량은 (+ 1) 3번차량은 (+ 1) 2번차량( 0) 1번차량(0)
+# 추월한 차량을 담을 변수
 cnt = 0
-# 뺴준값들을 돌면서
-for i in result:
-    # 만약 음수이면 1씩 늘려준다.
-    if i < 0:
-        cnt += 1
-
+# 1번 차량은 첫 차량이니까 볼 필요가 없으니 그 다음 차량부터 본다. (1, 2, 3)
+for p in range(1, n):
+    for q in range(0, p):
+        # 만약에 추월한 차량이 있다면
+        if exit_[entrance[q]] > exit_[entrance[p]]:
+            # count 해주고 종료해준다.
+            cnt += 1
+            break
 print(cnt)
