@@ -32,6 +32,7 @@ for p in range(1, n):
         # 만약에 추월한 차량이 있다면
         if exit_[entrance[q]] > exit_[entrance[p]]:
             # count 해주고 종료해준다.
+            print(exit_)
             cnt += 1
             break
 print(cnt)
