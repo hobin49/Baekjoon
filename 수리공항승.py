@@ -26,6 +26,7 @@ for leak in leak_out[1:]:
         first = leak - 0.5
         # 카운트를 해준다.
         cnt += 1
+# 1. 2.5 >= 2.5 pass 2. 2.5 >= 100.5 not pass cnt += 1=> 3. 101.5 >= 100.5 pass 4. 101.5 >= 101.5 pass
 print(cnt)
 
-# 1. 2.5 >= 2.5 pass 2. 2.5 >= 100.5 not pass cnt += 1=> 3. 101.5 >= 100.5 pass 4. 101.5 >= 101.5 pass
+

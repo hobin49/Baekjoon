@@ -15,6 +15,7 @@ for i in range(len(lst) - 1, -1, -1):
             lst[j] -= 1
             # count 해준다.
             cnt += 1
+        # 아니면 무시
         else:
             continue
 
