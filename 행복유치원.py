@@ -1,4 +1,4 @@
-# 방법 1
+# # 방법 1
 # import sys
 
 # input = sys.stdin.readline
@@ -18,7 +18,7 @@
 # # 최소비용에 해당하지 않는 애들을 총 길이에서 빼준다.
 # print(sum(diffrence[K - 1 :]))
 
-# 방법 2
+
 import sys
 
 input = sys.stdin.readline
@@ -32,7 +32,10 @@ def tshirt():
     # 총길이
     length = students[-1] - students[0]
 
-    # 인접한 유치원생드르이 키 차이를 구해서 리스트에 담아준다.
+    # 인접한 유치원생들의 키 차이를 구하고 담을 리스트
+    diffrence = []
+
+    # 인접한 유치원생들의 키 차이를 구해서 리스트에 담아준다.
     for i in range(len(students) - 1):
         diffrence.append(students[i + 1] - students[i])
 
@@ -40,7 +43,7 @@ def tshirt():
     diffrence = sorted(diffrence, reverse=True)
 
     # 최소비용에 해당하지 않는 애들을 총 길이에서 빼준다.
-    return length - sum(sorted(diffrence[: K - 1]))
+    return length - sum(diffrence[: K - 1])
 
 
 print(tshirt())
