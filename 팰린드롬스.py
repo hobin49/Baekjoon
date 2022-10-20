@@ -5,4 +5,3 @@ for _ in range(t):
         print("Yes")
     else:
         print("No")
-d
