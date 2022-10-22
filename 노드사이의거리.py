@@ -18,9 +18,9 @@ def bfs(start, destination):
     # 시작노드 거리(시작값) 넣어주고
     queue = deque()
     queue.append((start, 0))
-    # 시작노드 방문처리한다.
     # 방문기록
     visited = [False] * (n + 1)
+    # 시작노드 방문처리한다.
     visited[start] = True
     # 큐에 값이 있을때까지 돌아주고
     while queue:
