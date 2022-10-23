@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 graph = []
 
 # 입력값 받기
