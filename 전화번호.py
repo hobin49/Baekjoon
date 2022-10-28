@@ -1,23 +1,35 @@
-t = int(input())
-for _ in range(t):
+n = int(input())
+
+for _ in range(n):
+    m = int(input())
     lst = []
-    dictionary = {}
-    n = int(input())
-    for _ in range(n):
+    for _ in range(m):
         number = input()
         lst.append(number)
-    for num_ in lst:
-        dictionary[num_] = dictionary.get(num_, 0) + 1
+        lst.sort()
 
-    for num1 in lst:
-        search = ""
-        flag = True
-        for p in num1:
-            search += p
-            if search in dictionary.keys() and search != num1:
-                flag = False
+    for i in range(m - 1):
+        if lst[i] in lst[i + 1]:
 
-    if flag == False:
-        print("NO")
+            print("NO")
+            break
     else:
         print("YES")
+
+# import sys
+
+# input = sys.stdin.readline
+# t = int(input())
+# for _ in range(t):
+#     lst = []
+#     n = int(input())
+#     number = [input().rstrip() for _ in range(n)]
+#     number.sort()
+
+#     # 뒤에 두개만 보면 돼
+#     for i in range(n - 1):
+#         if number[i + 1].startswith(number[i]):
+#             print("NO")
+#             break
+#     else:
+#         print("YES")
