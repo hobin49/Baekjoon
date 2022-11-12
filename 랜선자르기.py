@@ -1,4 +1,7 @@
+import sys
+
 # 입력값을 받기
+input = sys.stdin.readline
 n, m = map(int, input().split())
 # 초기값을 담을 리스트
 lancable = []
@@ -7,8 +10,8 @@ for _ in range(n):
     lan = int(input())
     lancable.append(lan)
 
-# 시작점
-min_lan = 0
+# 시작점 초기값 0으로 시작했다가 zerodivisionError가 발생
+min_lan = 1
 # 끝점
 max_lan = max(lancable)
 
