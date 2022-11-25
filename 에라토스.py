@@ -11,4 +11,4 @@ for i in range(2, len(nums) + 1):
             cnt += 1
             if cnt == k:
                 print(j)
-                brea
+                break
