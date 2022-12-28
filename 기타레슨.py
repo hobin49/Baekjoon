@@ -2,32 +2,33 @@ import sys
 
 input = sys.stdin.readline
 
+# arr=[1, 2, 3, 4, 5, 6, 7, 8, 9], target = m
+def binarysearch(arr, target):
+    start, end = 0, len(arr) - 1
+    cnt, sum_ = 0, 0
+    while start <= end:
+        mid = (start + end) // 2
+
+        for i in range(n):
+            # 15
+            mid = (start + end) // 2
+            sum_ += arr[i]
+            # 만약 합계가 중간값보다 작으면
+            if sum_ <= mid:
+                # count+= 1 sum_초기화
+                cnt += 1
+                sum_ = 0
+        # 만약 카운트한게 블루레이 크기보다 작으면 끝에서 줄이고
+        if cnt <= target:
+            end = mid - 1
+        # 아니면 늘리고
+        else:
+            start = mid + 1
+    return start
+
 
 n, m = map(int, input().split())
 
 lecture = list(map(int, input().split()))
 
-
-left = 0
-right = len(lecture)
-
-
-# 최소 크기 후보 = 15
-mid = left + right // 2
-
-standard = sum(lecture) // m
-
-# 레슨 길이의 합이 mid 보다 작도록 나누면
-group = []
-s = 0
-for i in range(n - 1):
-    s += lecture[i]
-    if s + lecture[i + 1] >= standard:
-        group.append(s)
-        s = 0
-
-# 그룹의 수가 > 블루레이 m 보다 크면
-if len(group) > m:
-    left = mid + 1
-else:
-    right = mid - 1
+print(binarysearch(lecture, m))
