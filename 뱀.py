@@ -38,6 +38,7 @@ def bfs(x, y):
     cnt = 0
     # 뱀이 처음 시작하는 곳 방문 처리(나중에 꼬리 밟는것을 고려해서 처리)
     # 만약 다음칸에 사과가 있으면
+
     if board[1][2] == 1:
         board[1][1] = 2
         cnt += 1
@@ -50,7 +51,7 @@ def bfs(x, y):
     while queue:
         x, y = queue.popleft()
 
-        # 사방탐색
+        # 사방탐색(이 부분을 모르겠네요...)
         for d in range(4):
             nx = x + dx[d]
             ny = y + dy[d]
