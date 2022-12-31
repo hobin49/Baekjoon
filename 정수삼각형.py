@@ -1,20 +1,3 @@
-# 처음에 생각했던 방법(틀림)
-# 위에서 출발한다고 생각을 했어요
-# n = int(input())
-
-# triangle = []
-# for _ in range(n):
-#     triangle.append(list(map(int, input().split())))
-
-
-# matrix = []
-# for i in range(len(triangle) - 1):
-#     for j in range(len(triangle) - 1):
-#         matrix.append(max(triangle[i + 1][j], triangle[i + 1][j + 1]))
-
-# print(matrix)
-
-
 def solution(triangle):
     for row in range(len(triangle) - 2, -1, -1):
         for col in range(len(triangle[row])):
