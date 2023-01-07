@@ -11,7 +11,7 @@ for _ in range(n):
 # 최대 높이
 max_num = max(k)
 # 지금까지 안전개수 나중에 안전개수가 안 나올 것을 대비
-result = 1
+result = -1000
 
 # 사방탐색
 dx = [-1, 0, 0, 1]
