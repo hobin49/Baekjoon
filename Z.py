@@ -22,7 +22,6 @@ def recursive(n, r, c):
             r -= 2**n
             c -= 2**n
             result += (2**n) * (2**n) * 3
-
     return result
 
 
