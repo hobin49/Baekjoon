@@ -59,21 +59,24 @@ def bfs(x, y):
 
 t = int(input())
 
-
+# 입력값을 받아주고
 for _ in range(t):
     h, w = map(int, input().split())
     lamb = []
     for _ in range(h):
         lamb.append(list(map(str, input())))
 
+    # 사방탐색
     dx = [-1, 0, 0, 1]
     dy = [0, -1, 1, 0]
 
     cnt = 0
     for i in range(h):
         for j in range(w):
+            # 양을 발견하면 함수를 돈다.
             if lamb[i][j] == "#":
                 bfs(i, j)
+                # 함수를 돌때마다 count
                 cnt += 1
 
     print(cnt)

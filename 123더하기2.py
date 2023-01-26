@@ -22,6 +22,7 @@ def back(number, answer):
 
 back(0, [])
 
+
 if len(answers) < k:
     print(-1)
 else:
