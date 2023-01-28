@@ -6,7 +6,7 @@ input = sys.stdin.readline
 # 무한을 의미하는 값으로 10억을 설정
 INF = int(1e9)
 
-# 노드의 개수, 간서의 개수를 입력받기
+# 노드의 개수, 간선의 개수를 입력받기
 n, m = map(int, input().split())
 
 # 시작 노드 번호를 입력받기
@@ -29,6 +29,7 @@ for _ in range(m):
 
 
 def dijkstra(start):
+    result = 0
     q = []
     # 시작 노드로 가기 위한 최단 경로는 0으로 설정하여, 큐에 삽입
     heapq.heappush(q, (0, start))
@@ -59,22 +60,32 @@ for i in range(1, n + 1):
         print(distance[i])
 
 
+# 모든 노드로 가기 위한 최단 거리를 출력
+# for i in range(1, n + 1):
+#     # 도달할 수 없는 경우, 무한이라고 출력
+#     if distance[i] == INF:
+#         print("INFINITY")
+#     # 도달할 수 있는 경우 거리를 출력
+#     else:
+#         print(distance[i])
+
+
 # 플로이드 워셜
-import sys
+# import sys
 
-INF = sys.maxsize
+# INF = sys.maxsize
 
 
-def Floyd_Warshall():
-    # 최단 경로를 담는 배열
-    dist = [[INF] * n for i in range(n)]
+# def Floyd_Warshall():
+#     # 최단 경로를 담는 배열
+#     dist = [[INF] * n for i in range(n)]
 
-    # 최단 경로를 담는 배열을 초기화
-    for i in range(n):
-        for j in range(n):
-            dist[i][j] = a[i][j]
+#     # 최단 경로를 담는 배열을 초기화
+#     for i in range(n):
+#         for j in range(n):
+#             dist[i][j] = a[i][j]
 
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+#     for k in range(n):
+#         for i in range(n):
+#             for j in range(n):
+#                 dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
