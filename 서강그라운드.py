@@ -62,44 +62,84 @@
 
 
 # 또 다른 풀이 (다익스트라)
-import heapq
+# import heapq
+# import collections
+
+# n, m, r = map(int, input().split())
+# items = list(map(int, input().split()))
+# graph = collections.defaultdict(list)
+
+# for _ in range(r):
+#     u, v, w = map(int, input().split())
+#     graph[u].append([v, w])
+#     graph[v].append([u, w])
+
+
+# def dijkstra(start):
+#     items_sum = 0
+#     visit = []
+#     q = []
+#     # [거리, 노드]
+#     heapq.heappush(q, [start, 0])
+#     while q:
+#         # 노드, 거리
+#         cur, dist = heapq.heappop(q)
+#         # 노드가 방문하지 않은 곳이면
+#         if cur not in visit:
+#             # 탐색 종료
+#             if dist > m:
+#                 continue
+#             # 아이템을 누적한다.
+#             items_sum += items[cur - 1]
+#             # 방문 처리
+#             visit.append(cur)
+#             # 인접한 노드를 돌면서 (nx= 인접한 노드, w = 거리)
+#             for nx, w in graph[cur]:
+#                 heapq.heappush(q, [nx, dist + w])
+#     return items_sum
+
+
+# answer = 0
+# for i in range(n):
+#     answer = max(answer, dijkstra(i + 1))
+# print(answer)
+
 import collections
+import heapq
 
 n, m, r = map(int, input().split())
-items = list(map(int, input().split()))
 graph = collections.defaultdict(list)
+items = list(map(int, input().split()))
 
 for _ in range(r):
-    u, v, w = map(int, input().split())
-    graph[u].append([v, w])
-    graph[v].append([u, w])
+    a, b, c = map(int, input().split())
+    graph[a].append([b, c])
+    graph[b].append([a, c])
 
 
 def dijkstra(start):
-    items_sum = 0
-    visit = []
+    visited = []
     q = []
-    # [거리, 노드]
-    heapq.heappush(q, [0, start])
+    item = 0
+
+    heapq.heappush(q, [start, 0])
+
     while q:
-        # 거리, 노드
-        dist, cur = heapq.heappop(q)
-        # 노드가 방문하지 않은 곳이면
-        if cur not in visit:
-            # 탐색 종료
+        cur, dist = heapq.heappop(q)
+        if cur not in visited:
             if dist > m:
                 continue
-            # 아이템을 누적한다.
-            items_sum += items[cur - 1]
-            # 방문 처리
-            visit.append(cur)
-            # 인접한 노드를 돌면서 (nx= 인접한 노드, w = 거리)
+            item += items[cur - 1]
+            visited.append(cur)
+
             for nx, w in graph[cur]:
-                heapq.heappush(q, [dist + w, nx])
-    return items_sum
+                heapq.heappush(q, [nx, dist + w])
+
+    return item
 
 
-answer = 0
+max_ = 0
 for i in range(n):
-    answer = max(answer, dijkstra(i + 1))
-print(answer)
+    max_ = max(max_, dijkstra(i + 1))
+
+print(max_)
