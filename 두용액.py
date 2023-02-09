@@ -29,7 +29,7 @@ while start < end:
     if temp == 0:
         break
 
-    # 만약 계산한 값이 음수면 늘려주고 양수면 줄여준다.
+    # 만약 계산한 값이 음수면 시작지점을 늘려주고 양수면 줄여준다.
     if temp < 0:
         start += 1
     else:
