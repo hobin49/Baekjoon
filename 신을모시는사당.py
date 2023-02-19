@@ -1,26 +1,62 @@
+# n = int(input())
+# lst = list(map(int, input().split()))
+
+# #누적합 구할 리스트가 필요
+# sum_ = [0 for _ in range(n+1)]
+
+
+# s = 0
+# result = []
+# for i in range(n):
+#     if lst[i] == 1:
+#         s += 1
+#         sum_.append(s)
+#     elif lst[i] == 2:
+#         s -= 1
+#         sum_.append(s)
+
+# # 0 -(-4) = 4
+# print(max(sum_) - min(sum_))
+
+# n = int(input())
+# direc = list(map(int, input().split()))
+# ans = [0] * n
+
+# cnt = 0
+
+# for i in range(n):
+#     if direc[i] == 1:
+#         cnt +=1
+#     else:
+#         cnt -=1
+#     ans.append(cnt)
+
+# print(max(ans) - min(ans))
+
+
 n = int(input())
+
 lst = list(map(int, input().split()))
 
-#누적합 구할 리스트가 필요
-sum_ = [0 for _ in range(n+1)]
+m = [n, -n]
 
-#누적합[1]에는 리스트[0]을 넣고
-sum_[1] = 1
+k = 0
 
-# 누적합[2]부터는 만약 리스트[i-2]가 리스트[i-1]랑 같은지
-for i in range(2, n+1):
-    if lst[i-2] == lst[i-1]:
-        # sum_[i] = sum_[i-1] + 1
-        sum_[i] = 1
-
-left = 0
-right = 0
-for j in range(n):
-    if lst[j] == 1:
-        left += sum_[j+1]
+for i in range(n):
+    if lst[i] == 1:
+        k += 1
     else:
-        right += sum_[j+1]
+        k -= 1
 
+    if k < m[0]:
+        m[0] = k
+    else:
+        m[1] = k
 
-print(abs(left-right))
+if m[0] > 0:
+    m[0] = 0
 
+if m[1] < 0:
+    m[1] = 0
+
+print(m[1] - m[0])
